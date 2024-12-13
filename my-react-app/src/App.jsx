@@ -4,11 +4,15 @@ import "./index.css";
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  const [error, setError] = useState(""); 
 
   const addTodo = () => {
     if (input.trim()) {
       setTodos([...todos, input.trim()]);
       setInput("");
+      setError(""); 
+    } else {
+      setError("Please add a task"); 
     }
   };
 
@@ -28,6 +32,8 @@ function App() {
         />
         <button onClick={addTodo}>Add</button>
       </div>
+      
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <ul className="todo-list">
         {todos.map((todo, index) => (
           <li key={index}>
