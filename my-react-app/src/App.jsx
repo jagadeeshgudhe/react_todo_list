@@ -41,9 +41,4 @@ function App() {
             <button onClick={() => deleteTodo(index)}>Delete</button>
           </li>
         ))}
-      </ul>
-    </div>
-  );
-}
 
-export default App;
